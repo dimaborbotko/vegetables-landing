@@ -6,8 +6,6 @@ import FreshProduct from "./FreshProduct";
 import Header from "./Header";
 import NearbyProduct from "./NearbyProduct";
 
-const Stack = createNativeStackNavigator();
-
 export default function Main() {
   return (
     <View style={styles.container}>
