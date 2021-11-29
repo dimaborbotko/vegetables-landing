@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginTop: 15,
     alignItems: "flex-end",
-    marginBottom: 15
+    marginBottom: 10
   },
   header: {
     fontSize: 20,

@@ -12,7 +12,7 @@ export default function NearbyList({ uri }) {
 const styles = StyleSheet.create({
   box: {
     backgroundColor: "#d6d6d6",
-    padding: 20,
+    padding: 10,
     borderRadius: 5,
     marginHorizontal: 15
   },
