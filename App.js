@@ -4,12 +4,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Register from './src/screens/Register'
 import Main from './src/screens/Main'
+import Product from './src/products/Product'
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName="Register" screenOptions={{headerShown: false}}>
         <Stack.Screen
           name="Register"
           component={Register}
@@ -19,6 +21,11 @@ export default function App() {
           name="Main"
           component={Main}
           options={{ title: "Main" }}
+        />
+        <Stack.Screen
+          name="Product"
+          component={Product}
+          options={{ title: "Product" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

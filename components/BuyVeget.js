@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 export default function BuyVeget({ uri, name, cost, rate }) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity activeOpacity={0.7} style={styles.product}>
+      <View style={styles.product}>
         <View style={styles.imgBg}>
           <Image style={styles.img} source={uri} />
         </View>
@@ -15,7 +15,7 @@ export default function BuyVeget({ uri, name, cost, rate }) {
           <Text style={styles.cost}>{cost}</Text>
           <Text style={styles.rate}>{rate}</Text>
         </View>
-      </TouchableOpacity>
+      </View>
       <TouchableOpacity activeOpacity={0.7} style={styles.cartBtn}>
         <Ionicons style={styles.cart} name="ios-cart" size={25} color="white" />
       </TouchableOpacity>

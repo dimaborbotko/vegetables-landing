@@ -3,10 +3,6 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import HeaderButton from "../../components/HeaderButton";
 
 export default function Register({ navigation }) {
-  
-  // const loadMain = () => {
-  //   navigation.navigate('Main')
-  // }
 
   return (
     <View style={styles.container}>
@@ -26,7 +22,7 @@ export default function Register({ navigation }) {
           />
         </View>
         <View style={styles.formReg}>
-          <HeaderButton text="Sign in" onPress={() => navigation.navigate('Main')}/>
+          <HeaderButton text="Sign in" onPress={() => navigation.push('Main')}/>
           <Text style={styles.register}>
             Don`t have an account ? <Text style={styles.linkReg}>Register</Text>
           </Text>
