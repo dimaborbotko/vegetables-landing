@@ -8,21 +8,32 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
+import { useState } from "react";
 
 export default function Product({ route, navigation }) {
+  const [num, setNum] = useState(1);
+  const [cost, setCost] = useState(route.params.cost)
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <ImageBackground style={styles.imgBg} source={route.params.uri}>
-            <TouchableOpacity activeOpacity={0.7} onPress={() => navigation.navigate('Main')}>
-                <AntDesign
-                style={styles.backGo}
-                name="left"
-                size={24}
-                color="black"
+        <ImageBackground
+          resizeMode="contain"
+          style={styles.imgBg}
+          source={route.params.uri}
+        >
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => navigation.navigate("Main")}
+          >
+            <AntDesign
+              style={styles.backGo}
+              name="left"
+              size={24}
+              color="black"
             />
-            </TouchableOpacity>
-            
+          </TouchableOpacity>
+
           <Ionicons
             style={styles.share}
             name="share-social"
@@ -35,8 +46,42 @@ export default function Product({ route, navigation }) {
         <View style={styles.mainData}>
           <Text style={styles.name}>{route.params.name}</Text>
           <View style={styles.money}>
-            <Text style={styles.cost}>{route.params.cost}</Text>
-            <Text style={styles.quantity}>NNN</Text>
+            <Text style={styles.cost}>{`$${parseFloat(cost).toFixed(2)}`}</Text>
+            <View style={styles.quantity}>
+              <TouchableOpacity
+                onPress={() => {
+                  setNum(num + 1) 
+                  setCost(+cost + +route.params.cost)
+                }}
+                activeOpacity={0.7}
+                style={styles.plus}
+              >
+                <AntDesign
+                  style={styles.plusIcon}
+                  name="plussquare"
+                  size={24}
+                  color="#1da124"
+                />
+              </TouchableOpacity>
+              <Text style={styles.culc}>{num}</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  if (num > 1) {
+                    setNum(num - 1);
+                    setCost(+cost - +route.params.cost)
+                  }
+                }}
+                activeOpacity={0.7}
+                style={styles.minus}
+              >
+                <AntDesign
+                  style={styles.minusIcon}
+                  name="minussquare"
+                  size={24}
+                  color="#1da124"
+                />
+              </TouchableOpacity>
+            </View>
           </View>
           <Text style={styles.rate}>{route.params.rate}</Text>
           <Text style={styles.description}>
@@ -113,21 +158,21 @@ const styles = StyleSheet.create({
     padding: 5,
     marginTop: 40,
     marginRight: 15,
-
   },
   imgBg: {
     width: "100%",
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    backgroundColor: "white",
   },
 
   info: {
     flex: 4,
     alignItems: "center",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
     justifyContent: "center",
-    backgroundColor: "white",
+    backgroundColor: "#e6e6e6",
   },
   mainData: {
     width: "90%",
@@ -142,7 +187,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 10,
-    marginTop: 10
+    marginTop: 10,
   },
   cost: {
     fontSize: 24,
@@ -150,7 +195,15 @@ const styles = StyleSheet.create({
     color: "#1da124",
   },
   quantity: {
-    color: "green",
+    flexDirection: "row",
+  },
+  culc: {
+    marginHorizontal: 5,
+    fontWeight: "bold",
+    fontSize: 17,
+  },
+  minus: {
+    borderRadius: 10,
   },
   rate: {
     fontSize: 12,

@@ -10,7 +10,7 @@ export default function Main() {
   return (
     <View style={styles.container}>
       <Header />
-      <Categories />
+      {/* <Categories /> */}
       <FreshProduct />
       <NearbyProduct />
       <Bottom />
