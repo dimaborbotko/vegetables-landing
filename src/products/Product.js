@@ -7,7 +7,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import { AntDesign, Ionicons } from "@expo/vector-icons";
+import { AntDesign, Ionicons, FontAwesome } from "@expo/vector-icons";
 import { useState } from "react";
 
 export default function Product({ route, navigation }) {
@@ -83,7 +83,7 @@ export default function Product({ route, navigation }) {
               </TouchableOpacity>
             </View>
           </View>
-          <Text style={styles.rate}>{route.params.rate}</Text>
+          <Text style={styles.rate}><FontAwesome name="star" size={15} color="gold" /> {route.params.rate}</Text>
           <Text style={styles.description}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text

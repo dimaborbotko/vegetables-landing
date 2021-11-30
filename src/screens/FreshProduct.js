@@ -8,7 +8,7 @@ import {
   Image,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import Categories from "./Categories";
 
 export default function FreshProduct() {
@@ -79,7 +79,7 @@ export default function FreshProduct() {
               <View style={styles.infoList}>
                 <Text style={styles.textList}>{item.name}</Text>
                 <Text style={styles.costList}>{`$${item.cost}`}</Text>
-                <Text style={styles.rateList}>{item.rate}</Text>
+                <Text style={styles.rateList}><FontAwesome name="star" size={15} color="gold" /> {item.rate}</Text>
               </View>
             </View>
             <TouchableOpacity activeOpacity={0.7}>
@@ -106,7 +106,10 @@ export default function FreshProduct() {
       />
       <View style={styles.title}>
         <Text style={styles.header}>Fresh Product</Text>
-        <Text style={styles.linkAll}>See All</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("AllProduct", {listVeget: listVeget})} activeOpacity={0.7}>
+          <Text style={styles.linkAll}>See All</Text>
+        </TouchableOpacity>
+        
       </View>
       <View style={styles.listVeget}>
         <FlatList
