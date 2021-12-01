@@ -76,7 +76,7 @@ export default function NearbyProduct({ }) {
         showsHorizontalScrollIndicator={false}
       >
         {nearbyPr.map((item) => (
-          <TouchableOpacity style={styles.box} activeOpacity={0.7}>
+          <TouchableOpacity style={styles.box} activeOpacity={0.7} onPress={() => navigation.navigate("Product", item)}>
           <View style={styles.contImg}>
             <Image style={styles.img} source={item.uri} />
           </View>
